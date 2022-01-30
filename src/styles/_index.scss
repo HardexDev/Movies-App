@@ -1,0 +1,13 @@
+@import url("./pages/_home.scss");
+@import url("./pages/_favorites.scss");
+@import url("./pages/_details.scss");
+@import url("./components/_header.scss");
+@import url("./components/_card.scss");
+@import url("./components/_form.scss");
+@import url("./components/_grid.scss");
+
+*, *::after, *::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
