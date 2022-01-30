@@ -1,3 +1,7 @@
+# Movies App
+
+Small react app to search for movies and see details about them, using the TMDB api.
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
