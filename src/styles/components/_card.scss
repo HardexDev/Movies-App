@@ -1,0 +1,96 @@
+@use '../variables';
+
+.Card {
+    width: variables.$card_width;
+    height: variables.$card_height;
+    background-color: variables.$header_background_color;
+    overflow: hidden;
+
+    border-radius: 25px;    
+
+    .header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+
+        h2 {
+            color: variables.$white;
+    
+            margin-top: 10px;
+            margin-left: 20px;
+        }
+
+        p {
+            color: variables.$white;
+            font-size: 40px;
+            color: variables.$pink;
+            margin-right: 20px;
+
+            transition: all .3s ease;
+
+            &:hover {
+                cursor: pointer;
+                color: variables.$pink_btn_hover;
+            }
+        }
+    }
+
+    .flex-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    
+        img {
+            width: 200px;
+            height: 300px;
+            object-fit: cover;
+            border-radius: 25px;
+            margin-top: 10px;
+        }
+    
+        p {
+            margin-top: 10px;
+            color: variables.$card_text_grey;
+    
+            span {
+                color: variables.$yellow_star;
+            }
+        }
+    
+        .synopsis {
+            margin-top: 20px;
+    
+            p {
+                text-align: center;
+            }
+    
+            p:nth-child(1) {
+                color: variables.$white;
+                font-weight: bold;
+            }
+        }
+
+        button {
+            margin-top: 25px;
+            border: none;
+            width: 150px;
+            height: 30px;
+
+            border-radius: 25px;
+            color: variables.$white;
+            font-size: 15px;
+            background-color: variables.$blue_button;
+
+            cursor: pointer;
+
+            transition: all .3s ease;
+
+            &:hover {
+                background-color: rgb(94, 69, 231);
+            }
+        }
+    }
+
+    
+}

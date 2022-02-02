@@ -1,8 +1,41 @@
 $darkGreen: #96b1fd;
 
 .Home {
-    h1 {
-        color: $darkGreen;
-        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    width: 100%;
+    min-height: 100vh;
+    background-color: rgb(20, 47, 56);
+
+    .movies {
+        width: 100%;
+        display: grid;
+        grid-template-columns: repeat(4, 0fr);
+        column-gap: 75px;
+        row-gap: 50px;
+        justify-content: center;
+        padding-bottom: 50px;
+    }
+}
+
+@media (max-width: 1426px) {
+    .Home {
+        .movies {
+            grid-template-columns: repeat(3, 0fr);
+        }
+    }
+}
+
+@media (max-width: 1050px) {
+    .Home {
+        .movies {
+            grid-template-columns: repeat(2, 0fr);
+        }
+    }
+}
+
+@media (max-width: 676px) {
+    .Home {
+        .movies {
+            grid-template-columns: repeat(1, 0fr);
+        }
     }
 }

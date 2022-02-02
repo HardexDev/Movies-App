@@ -1,0 +1,81 @@
+@use '../variables';
+
+.Header {
+    width: 100%;
+    height: variables.$header_height;
+    background-color: variables.$header_background_color;
+    position: relative;
+
+    .flex-container {
+        display: flex;
+        align-items: center;
+    }
+
+    h1 {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        color: variables.$white;
+        text-align: center;
+    }
+
+    .Links {
+        display: flex;
+        align-items: center;
+
+        height: variables.$header_height;
+
+        gap: 20px;
+
+
+        img {
+            width: 50px;
+            margin-left: 20px;
+        }
+
+        .header-link {
+            height: 35px;
+            padding: 15px;
+            border-radius: 25px;
+            background-color: variables.$pink;
+            text-decoration: none;
+            color: variables.$white;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            transition: all .3s ease;
+
+            &:hover {
+                background-color: variables.$pink_btn_hover;
+            }
+        }
+    }
+
+}
+
+// For responsive purposes
+@media (max-width: 640px) {
+    .Header {
+        h1 {
+            left: 80%;
+            width: 105px;
+            font-size: 20px;
+        }
+    }
+}
+
+@media (max-width: 327px) {
+    .Header {
+        h1 {
+            display: none;
+        }
+
+        .flex-container {
+            justify-content: center;
+            width: 100%;
+        }
+    }
+}
