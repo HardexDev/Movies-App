@@ -1,8 +1,10 @@
 import axios, { AxiosResponse, AxiosResponseHeaders } from 'axios';
 import React, { useEffect, useState } from 'react';
+import {SortType} from "../pages/Home"
 
 interface Props {
   searchHandler(data: object[]): void;
+  sortHandler(type: SortType): void;
 }
 
 const Form: React.FC<Props> = (props) => {
@@ -25,8 +27,8 @@ const Form: React.FC<Props> = (props) => {
       <div className="Form">
         <input type="text" placeholder="Search for a movie" onChange={(e) => {setSearchContent(e.target.value)}}/>
         <div className="sort-buttons">
-          <button className="sort-asc"><span>➜</span></button>
-          <button className="sort-dsc"><span>➜</span></button>
+          <button className="sort-dsc" onClick={() => {props.sortHandler(SortType.top)}}><span>➜</span> A-Z</button>
+          <button className="sort-asc" onClick={() => {props.sortHandler(SortType.down)}}><span>➜</span> Z-A</button>
         </div>
       </div>
   );

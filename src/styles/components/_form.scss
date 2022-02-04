@@ -41,10 +41,10 @@
         }
 
         .sort-asc {
-            border-top-left-radius: 25px;
-            border-bottom-left-radius: 25px;
+            border-top-right-radius: 25px;
+            border-bottom-right-radius: 25px;
 
-            border-right: solid variables.$white 1px;
+            
 
             span {
                 display: inline-block;
@@ -53,8 +53,10 @@
         }
 
         .sort-dsc {
-            border-top-right-radius: 25px;
-            border-bottom-right-radius: 25px;
+            border-top-left-radius: 25px;
+            border-bottom-left-radius: 25px;
+
+            border-right: solid variables.$white 1px;
 
             span {
                 display: inline-block;
