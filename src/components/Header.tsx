@@ -8,7 +8,8 @@ const Header: React.FC = () => {
             <div className="flex-container">
                 <div className="Links">
                     <NavLink to="/"><img src="/assets/logo.png" alt="" /></NavLink>
-                    <NavLink className="header-link" to="/favorites">Favorites</NavLink>
+                    <NavLink className={nav => "header-link" + (nav.isActive ? " active" : "")} to="/">Home</NavLink>
+                    <NavLink className={nav => "header-link" + (nav.isActive ? " active" : "")} to="/favorites">Favorites</NavLink>
                 </div>
             </div>
             

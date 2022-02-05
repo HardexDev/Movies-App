@@ -17,29 +17,16 @@ const Home: React.FC = () => {
   }
 
   const sortHandler = (type: SortType): void => {
-    if (type === SortType.top) {
-      let newArray = produce(moviesData, sortedMovies => {
-        sortedMovies.sort((a, b) => {
-          if (a.title < b.title) {return -1;}
-          if (a.title > b.title) {return 1;}
+    let newArray = produce(moviesData, sortedMovies => {
+      sortedMovies.sort((a, b) => {
+        if (a.title < b.title) {return type === SortType.top ? -1 : 1;}
+        if (a.title > b.title) {return type === SortType.top ? 1 : -1;}
 
-          return 0;
-        });
+        return 0;
       });
+    });
 
-      setMoviesData(newArray);
-    } else if (type === SortType.down) {
-      let newArray = produce(moviesData, sortedMovies => {
-        sortedMovies.sort((a, b) => {
-          if (a.title < b.title) {return 1;}
-          if (a.title > b.title) {return -1;}
-
-          return 0;
-        });
-      });
-
-      setMoviesData(newArray);
-    }
+    setMoviesData(newArray);
   }
 
   return (

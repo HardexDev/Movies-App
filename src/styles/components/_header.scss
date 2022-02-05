@@ -51,13 +51,17 @@
             &:hover {
                 background-color: variables.$pink_btn_hover;
             }
+
+            &.active {
+                background-color: variables.$pink_btn_hover;
+            }
         }
     }
 
 }
 
 // For responsive purposes
-@media (max-width: 640px) {
+@media (max-width: 720px) {
     .Header {
         h1 {
             left: 80%;
@@ -67,7 +71,7 @@
     }
 }
 
-@media (max-width: 327px) {
+@media (max-width: 420px) {
     .Header {
         h1 {
             display: none;

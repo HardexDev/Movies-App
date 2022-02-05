@@ -1,0 +1,7 @@
+@use "../variables";
+
+.Favorites {
+    .favorite-movies {
+        background-color: variables.$header_background_color;
+    }
+}
