@@ -3,6 +3,7 @@ import { NavLink } from 'react-router-dom';
 
 interface Props {
   movie: any;
+  updateFavorites?: () => void;
 }
 
 const Card: React.FC<Props> = (props) => {
@@ -28,6 +29,9 @@ const Card: React.FC<Props> = (props) => {
       addToLocalStorage();
     } else {
       removeFromLocalStorage();
+      if (props.updateFavorites) {
+        props.updateFavorites();
+      }
     }
   }, [isFavorite])
 

@@ -1,15 +1,47 @@
-import produce from 'immer';
-import React, { useState } from 'react';
+import axios from 'axios';
+import React, { useEffect, useState } from 'react';
+import Card from '../components/Card';
 import Header from '../components/Header';
 
 const Favorites: React.FC = () => {
   const [favMoviesData, setFavMoviesData] = useState<any[]>([]);
 
+  const updateFavorites = (): void => {
+    let movieIds = loadFromLocalStorage()[0];
+
+    if (favMoviesData.length !== 0) {
+      setFavMoviesData([]);
+    }
+
+    const fetchData = async () => {
+      let newData: any[] = [];
+      movieIds.forEach((movieId) => {
+      axios.get(`https://api.themoviedb.org/3/movie/${movieId}?api_key=40ddc708cabcc62d933f378fdb056886&language=en-US`)
+        .then(res => {setFavMoviesData(arr => [...arr, res.data])});
+      });
+    }
+
+    fetchData();
+  }
+
+  useEffect(() => {
+    updateFavorites();
+  }, []);
+
+  const loadFromLocalStorage = (): [[], boolean] => {
+    return window.localStorage.movies ? [window.localStorage.movies.split(","), true] : [[], false];
+  }
+
+  const test: string[] = ['Bonjour', 'Nique'];
+
   return (
       <div className="Favorites">
         <Header />
-        <div className="favorite-movies">
-  
+        <h2 className='subtitle'><span>❤ </span>Mes coups de coeurs <span>❤</span></h2>
+        <div className={favMoviesData.length === 0 ? "favorite-movies flex" : "favorite-movies"}>
+          {favMoviesData.length !== 0 ? favMoviesData.map(movie => {
+            return <Card movie={movie} updateFavorites={updateFavorites} />
+          }) : <h2 className="fav-empty">Pas de coups de coeur pour le moment</h2>}
         </div>
       </div>
   );

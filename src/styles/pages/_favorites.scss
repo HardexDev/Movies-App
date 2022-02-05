@@ -1,7 +1,65 @@
 @use "../variables";
 
 .Favorites {
+    h2.subtitle {
+        text-align: center;
+        color: variables.$white;
+        padding-top: 20px;
+        padding-bottom: 40px;
+        font-size: 35px;
+        background-color: rgb(20, 47, 56);;
+
+        span {
+            color: variables.$pink;
+        }
+
+        @media (max-width: 430px) {
+            font-size: 25px;
+        }
+    }
+
     .favorite-movies {
-        background-color: variables.$header_background_color;
+        background-color: rgb(20, 47, 56);
+        min-height: (100vh - variables.$header_height);
+        padding-bottom: 50px;
+
+        display: grid;
+        grid-template-columns: repeat(4, 0fr);
+        justify-content: center;
+        column-gap: 75px;
+        row-gap: 50px;
+
+        &.flex {
+            display: flex;
+        }
+
+        @media (max-width: 1426px) {
+            grid-template-columns: repeat(3, 0fr);
+        }
+
+        @media (max-width: 1050px) {
+            grid-template-columns: repeat(2, 0fr);
+        }
+
+        @media (max-width: 676px) {
+            grid-template-columns: repeat(1, 0fr);
+        }
+        
+
+        h2.fav-empty {
+            font-size: 30px;
+            padding-top: 100px;
+            font-weight: normal;
+            color: variables.$white;
+            
+            @media (max-width: 676px) {
+                padding-left: 0;
+            }
+
+            @media (max-width: 430px) {
+                font-size: 20px;
+            }
+        }
+        
     }
 }
