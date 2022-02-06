@@ -1,5 +1,5 @@
 import produce from 'immer';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Card from '../components/Card';
 import Form from '../components/Form';
 import Header from '../components/Header';
@@ -28,6 +28,12 @@ const Home: React.FC = () => {
 
     setMoviesData(newArray);
   }
+
+  useEffect(() => {
+    if (!window.localStorage.getItem("language")) {
+      window.localStorage.setItem("language", "fr-FR");
+    }
+  }, []);
 
   return (
       <div className="Home">

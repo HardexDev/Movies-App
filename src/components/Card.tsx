@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { NavLink } from 'react-router-dom';
+import { checkLanguage, usToFrenchDate } from '../Utils';
 
 interface Props {
   movie: any;
@@ -82,14 +83,14 @@ const Card: React.FC<Props> = (props) => {
           
           <div className="flex-container">
             <img src={props.movie.backdrop_path ? basePosterUrl + props.movie.backdrop_path : "/assets/poster_template.jpg"} alt="" />
-            <p>Release Date : {props.movie.release_date}</p>
-            <p>Rating (average) : {props.movie.vote_average} <span>★</span></p>
+            <p>{checkLanguage() ? "Date de sortie" : "Release Date"} : {checkLanguage() ? usToFrenchDate(props.movie.release_date) : props.movie.release_date}</p>
+            <p>{checkLanguage() ? "Note (moyenne)" : "Rating (average)"} : {props.movie.vote_average} <span>★</span></p>
             <div className="synopsis">
               <p>Synospis</p>
               <p>{synopsisPagination(props.movie.overview)}</p>
             </div>
 
-            <NavLink to={`/details/${props.movie.id}`}><button>More details ➜</button></NavLink>
+            <NavLink to={`/details/${props.movie.id}`}><button>{checkLanguage() ? "Plus de détails" : "More details"} ➜</button></NavLink>
           </div>
           
       </div>

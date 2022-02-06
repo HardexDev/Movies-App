@@ -58,28 +58,44 @@
         }
     }
 
+    .flags {
+        position: absolute;
+        top: 50%;
+        right: 0;
+        transform: translate(-50%, -50%);
+
+        img {
+            width: 40px;
+            cursor: pointer;
+        }
+
+        :nth-child(1) {
+            margin-right: 20px;
+        }
+    }
+
 }
 
 // For responsive purposes
 @media (max-width: 720px) {
     .Header {
         h1 {
-            left: 80%;
-            width: 105px;
-            font-size: 20px;
+            display: none;
         }
     }
 }
 
-@media (max-width: 420px) {
+@media (max-width: 434px) {
     .Header {
-        h1 {
-            display: none;
+        .Links {
+            img {
+                display: none;
+            }
         }
 
-        .flex-container {
-            justify-content: center;
-            width: 100%;
+        .flags {
+            left: 80%;
+            width: 100px;
         }
     }
 }
