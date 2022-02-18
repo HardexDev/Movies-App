@@ -1,4 +1,4 @@
-import axios, { AxiosResponse, AxiosResponseHeaders } from 'axios';
+import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import {SortType} from "../pages/Home"
 import {checkLanguage} from '../Utils';
@@ -11,6 +11,15 @@ interface Props {
 const Form: React.FC<Props> = (props) => {
   const [searchContent, setSearchContent] = useState<string>("");
   
+  // init
+  useEffect(() => {
+    if (window.localStorage.saveSearchContent === "1") {
+      setSearchContent(window.localStorage.searchContent);
+      window.localStorage.saveSearchContent = 0;
+    }
+
+  }, []);
+
   // Will be called each time the searchContent state is modified
   useEffect(() => {
     // If search field is empty, get current popular movies
@@ -26,7 +35,7 @@ const Form: React.FC<Props> = (props) => {
 
   return (
       <div className="Form">
-        <input type="text" placeholder={checkLanguage() ? "Rechercher un film" : "Search for a movie"} onChange={(e) => {setSearchContent(e.target.value)}}/>
+        <input type="text" placeholder={checkLanguage() ? "Rechercher un film" : "Search for a movie"} value={searchContent} onChange={(e) => {setSearchContent(e.target.value); window.localStorage.searchContent = e.target.value}}/>
         <div className="sort-buttons">
           <button className="sort-dsc" onClick={() => {props.sortHandler(SortType.top)}}><span>➜</span> A-Z</button>
           <button className="sort-asc" onClick={() => {props.sortHandler(SortType.down)}}><span>➜</span> Z-A</button>

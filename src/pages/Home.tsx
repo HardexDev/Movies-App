@@ -4,6 +4,9 @@ import Card from '../components/Card';
 import Form from '../components/Form';
 import Header from '../components/Header';
 
+var Scroll = require('react-scroll');
+var scroll = Scroll.animateScroll;
+
 export enum SortType {
   top,
   down,
@@ -30,9 +33,13 @@ const Home: React.FC = () => {
   }
 
   useEffect(() => {
-    if (!window.localStorage.getItem("language")) {
-      window.localStorage.setItem("language", "fr-FR");
-    }
+    console.log("Bonjour");
+    scroll.scrollTo(window.localStorage.scrollYPosition, {
+      smooth: 'easeInOutQuint',
+      duration: 800,
+      delay: 0
+    });
+    window.localStorage.scrollYPosition = 0;
   }, []);
 
   return (

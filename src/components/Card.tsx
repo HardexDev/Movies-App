@@ -90,7 +90,7 @@ const Card: React.FC<Props> = (props) => {
               <p>{synopsisPagination(props.movie.overview)}</p>
             </div>
 
-            <NavLink to={`/details/${props.movie.id}`}><button>{checkLanguage() ? "Plus de détails" : "More details"} ➜</button></NavLink>
+            <NavLink to={`/details/${props.movie.id}`}><button onClick={() => {window.localStorage.saveSearchContent = 1; window.localStorage.scrollYPosition = window.scrollY;}}>{checkLanguage() ? "Plus de détails" : "More details"} ➜</button></NavLink>
           </div>
           
       </div>

@@ -1,0 +1,284 @@
+@use "../variables";
+
+.Details {
+    main {
+        min-height: (100vh - variables.$header_height);
+        background-color: variables.$body_grey;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        .movie-container {
+            min-height: (100vh - variables.$header_height);
+            width: 90%;
+
+            .similar-movies-title {
+                color: variables.$white;
+                text-align: center;
+                font-size: 30px;
+                margin-bottom: 30px;
+            }
+            
+            h1 {
+                color: variables.$white;
+                padding-bottom: 25px;
+                padding-top: 25px;
+                border-bottom: solid 3px variables.$header_background_color;
+            }
+
+            .similar-movies {
+                display: grid;
+                grid-template-columns: repeat(4, 0fr);
+                justify-content: center;
+                column-gap: 75px;
+                row-gap: 50px;
+                padding-bottom: 50px;
+
+                @media (max-width: 1443px) {
+                    grid-template-columns: repeat(3, 0fr);
+                }
+
+                @media (max-width: 1075px) {
+                    grid-template-columns: repeat(2, 0fr);
+                }
+
+                @media (max-width: 700px) {
+                    grid-template-columns: repeat(1, 0fr);
+                }
+
+
+            }
+
+            .loader,
+            .loader:before,
+            .loader:after {
+            border-radius: 50%;
+            }
+            .loader {
+            color: #ffffff;
+            font-size: 11px;
+            text-indent: -99999em;
+            margin: 55px auto;
+            position: relative;
+            width: 10em;
+            height: 10em;
+            box-shadow: inset 0 0 0 1em;
+            -webkit-transform: translateZ(0);
+            -ms-transform: translateZ(0);
+            transform: translateZ(0);
+            }
+            .loader:before,
+            .loader:after {
+            position: absolute;
+            content: '';
+            }
+            .loader:before {
+            width: 5.2em;
+            height: 10.2em;
+            background: variables.$body_grey;
+            border-radius: 10.2em 0 0 10.2em;
+            top: -0.1em;
+            left: -0.1em;
+            -webkit-transform-origin: 5.1em 5.1em;
+            transform-origin: 5.1em 5.1em;
+            -webkit-animation: load2 2s infinite ease 1.5s;
+            animation: load2 2s infinite ease 1.5s;
+            }
+            .loader:after {
+            width: 5.2em;
+            height: 10.2em;
+            background: variables.$body_grey;
+            border-radius: 0 10.2em 10.2em 0;
+            top: -0.1em;
+            left: 4.9em;
+            -webkit-transform-origin: 0.1em 5.1em;
+            transform-origin: 0.1em 5.1em;
+            -webkit-animation: load2 2s infinite ease;
+            animation: load2 2s infinite ease;
+            }
+            @-webkit-keyframes load2 {
+            0% {
+                -webkit-transform: rotate(0deg);
+                transform: rotate(0deg);
+            }
+            100% {
+                -webkit-transform: rotate(360deg);
+                transform: rotate(360deg);
+            }
+            }
+            @keyframes load2 {
+            0% {
+                -webkit-transform: rotate(0deg);
+                transform: rotate(0deg);
+            }
+            100% {
+                -webkit-transform: rotate(360deg);
+                transform: rotate(360deg);
+            }
+            }
+        }
+
+        .content {
+            display: flex;
+            margin-bottom: 35px;
+            border-bottom: solid variables.$header_background_color;
+            padding-bottom: 35px;
+            overflow: hidden;
+
+            @media (max-width: 1100px) {
+                flex-direction: column;
+            }
+
+            .poster-container {
+                width: 50%;
+                
+
+                @media (max-width: 1100px) {
+                    width: 100%;
+                    display: flex;
+                    justify-content: center;
+                }
+    
+                .poster {
+                    width: 90%;
+                    max-height: auto;
+                    margin-top: 50px;
+                    border-radius: 25px;
+                }
+            }
+
+            
+
+            .movie-info {
+                color: variables.$white;
+                width: 50%;
+                padding-top: 50px;
+
+                @media (max-width: 1100px) {
+                    width: 100%;
+                }
+
+                .star {
+                    color: variables.$yellow_star;
+                }
+
+                p{
+                    font-size: 20px;
+                    color: variables.$card_text_grey;
+                    margin-bottom: 10px;
+                    
+                    span {
+                        font-size: 20px;
+                        color: variables.$white;
+                        font-weight: bold;
+                    }
+                }
+
+                .genres {
+                    display: flex;
+                    margin-bottom: 20px;
+                }
+                .genre {
+                    min-width: 50px;
+                    font-size: 14px;
+                    width: 100px;
+                    height: 35px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    border-radius: 25px;
+                    margin-right: 20px;
+
+                    background-color: variables.$header_background_color;
+                }
+
+                .synopsis {
+                    margin-bottom: 20px;
+                }
+                
+
+                .cast {
+                    display: flex;
+                    width: 100%;
+                    overflow-x: scroll;
+                    scrollbar-width: thin;
+                    margin-bottom: 50px;
+
+                    .castMember {
+                        display: flex;
+                        flex-direction: column;
+                        align-items: center;
+                        margin-right: 20px;
+
+                        img {
+                            width: 50px;
+                            height: 50px;
+                            border-radius: 50%;
+                            object-fit: cover;
+                        }
+
+                        p {
+                            margin-bottom: 0px;
+                            font-size: 13px;
+                            color: variables.$white;
+                            text-align: center;
+                        }
+                    }
+                }
+
+                .providers {
+                    .provider {
+                        display: flex;
+                        flex-direction: column;
+                        align-items: center;
+                        justify-content: center;
+                        margin-right: 30px;
+                    }
+
+                    img {
+                        width: 50px;
+                        height: 50px;
+                        border-radius: 12.5px;
+                    }
+
+                    p {
+                        font-size: 13px;
+                        text-align: center;
+                        color: variables.$white;
+                    }
+
+                    .streaming {
+                        display: flex;
+                        margin-bottom: 20px;
+                    }
+
+                    .vod {
+                        display: flex;
+                        overflow-x: scroll;
+                    }
+                }
+            }
+        }
+    }
+}
+
+/* width */
+::-webkit-scrollbar {
+    width: 10px;
+    height: 8px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+background: #888;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+background: #555;
+}

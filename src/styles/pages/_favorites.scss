@@ -19,7 +19,7 @@
     }
 
     .favorite-movies {
-        background-color: rgb(20, 47, 56);
+        background-color: variables.$body_grey;
         min-height: (100vh - variables.$header_height);
         padding-bottom: 50px;
 
