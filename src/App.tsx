@@ -6,7 +6,9 @@ import Home from './pages/Home';
 
 const App: React.FC = () => {
   useEffect(() => {
-    window.localStorage.language = "fr-FR";
+    if (!window.localStorage.language) {
+      window.localStorage.language = "fr-FR";
+    }
     window.localStorage.searchContent = "";
     window.localStorage.saveSearchContent = 0;
     window.localStorage.scrollYPosition = 0;
